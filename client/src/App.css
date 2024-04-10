@@ -1,0 +1,6 @@
+@media(max-width: 640px){
+   #ChangeMenu{
+     position: fixed;
+     right: 3000px;
+   }
+}
