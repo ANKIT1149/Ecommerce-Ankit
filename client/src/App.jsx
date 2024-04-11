@@ -7,19 +7,31 @@ import Product from "./Pages/Product";
 import Signin from "./Pages/Signin";
 import Signup from "./Pages/Signup";
 import Themeprovider from "./Context/Themeprovider";
-import "./App.css"
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
 const App = () => {
   return (
     <Themeprovider>
       <BrowserRouter>
-        <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/product" element={<Product />} />
+          <Route
+            path="/*"
+            element={
+              <div>
+                <Navbar />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/product" element={<Product />} />
+                </Routes>
+              </div>
+            }
+          />
           <Route path="/sign-in" element={<Signin />} />
           <Route path="/sign-up" element={<Signup />} />
         </Routes>
+        <ToastContainer />
       </BrowserRouter>
     </Themeprovider>
   );

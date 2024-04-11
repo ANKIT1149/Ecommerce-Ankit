@@ -13,18 +13,17 @@ const UserSchema = new mongoose.Schema({
      },
      password: {
          type: String,
-         required: true,
-          
+         required: true,   
      },
      phone: {
           type: String,
           required: true,
-          unique: true
      },
      age: {
-         type: Boolean,
-         required: true,
-     }
+        type: String,
+        require: true,
+     },
+     
 }, {timestamps: true});
 
 const User = mongoose.model("User", UserSchema);

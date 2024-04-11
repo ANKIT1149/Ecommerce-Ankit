@@ -4,3 +4,12 @@
      right: 3000px;
    }
 }
+
+.back_image{
+   background: url('https://img.freepik.com/free-vector/technology-background_23-2148119855.jpg?size=626&ext=jpg&ga=GA1.1.18246715.1712768471&semt=ais');
+   background-size: cover;
+}
+
+.background{
+    background: linear-gradient(rgba(122, 240, 5, 0.6), #bff903);
+}

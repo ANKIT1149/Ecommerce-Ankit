@@ -28,9 +28,9 @@ const Navbar = () => {
      }
   }
   return (
-    <header className="w-full h-auto">
+    <header className={`w-full h-auto ${window.location.href === "/sign-up" ? 'hidden' : ''}`}>
       <div
-        className={`flex justify-between items-center flex-wrap gap-0  p-5 shadow-md ${
+        className={`flex justify-between items-center flex-wrap gap-0  p-5 shadow-md  ${
           mode === 'dark' ? "bg-black" : 'light' ? 'bg-amber-400' : ''
         } ${mode === "light" ? "shadow-black" : "shadow-white"}`}
       >
