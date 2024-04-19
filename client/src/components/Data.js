@@ -11,8 +11,5 @@ export const data = [
         to: "/product",
         element : "Product"
      },
-     {
-        to: "/sign-in",
-        element : "Sign In"
-     },
+     
 ]

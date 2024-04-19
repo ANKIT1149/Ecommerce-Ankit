@@ -39,7 +39,7 @@ const Signup = () => {
       setError(null);
       navigate("/sign-in");
     } catch (Error) {
-      toast.error("Account registration failed", error)
+      toast.error("Account registration failed", Error)
       console.log(Error);
       SetLoading(false);
       setError(error.message);

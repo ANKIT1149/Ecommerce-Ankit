@@ -10,28 +10,34 @@ import { BsCart, BsFillCloudSunFill } from "react-icons/bs";
 // import { Link, NavLink } from "react-router-dom";
 // import { data } from "autoprefixer";
 import { FiMenu } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const { Currentuser } = useSelector((state) => state.user);
   const { mode, ChangeMode } = useContext(ThemeContext);
   const [menuOpne, menuClose] = useState(false);
   const mobile = window.innerWidth <= 768 ? true : false;
 
   // funcation of mobile navabr
 
-  let ChangeMenu = document.getElementById('Change-Menu');
+  let ChangeMenu = document.getElementById("Change-Menu");
 
   const OpenNavbar = () => {
-     if (ChangeMenu.style.right === "3000px") {
-        ChangeMenu.style.right = "0px"
-     } else {
-      ChangeMenu.style.right === "3000px"
-     }
-  }
+    if (ChangeMenu.style.right === "3000px") {
+      ChangeMenu.style.right = "0px";
+    } else {
+      ChangeMenu.style.right === "3000px";
+    }
+  };
   return (
-    <header className={`w-full h-auto ${window.location.href === "/sign-up" ? 'hidden' : ''}`}>
+    <header
+      className={`w-full h-auto ${
+        window.location.href === "/sign-up" ? "hidden" : ""
+      }`}
+    >
       <div
         className={`flex justify-between items-center flex-wrap gap-0  p-5 shadow-md  ${
-          mode === 'dark' ? "bg-black" : 'light' ? 'bg-amber-400' : ''
+          mode === "dark" ? "bg-black" : "light" ? "bg-amber-400" : ""
         } ${mode === "light" ? "shadow-black" : "shadow-white"}`}
       >
         <div className="flex">
@@ -75,6 +81,19 @@ const Navbar = () => {
                   </NavLink>
                 </li>
               ))}
+
+              <NavLink
+                to={Currentuser ? "/profile" : "/sign-in"}
+                className={({ isActive }) =>
+                  `${
+                    isActive ? "text-white hover:text-white" : "text-rose-700"
+                  } ${
+                    mode === "light"
+                      ? "hover:text-black transition-all"
+                      : "text-white transition-all"
+                  } font-bold font-serif text-xl`
+                }
+              >{Currentuser ? (<img src={Currentuser.avatar} alt="profile" className="w-[50px] h-[50px] rounded-full"/>) : 'Signin'}</NavLink>
             </ul>
 
             <form>
@@ -90,8 +109,13 @@ const Navbar = () => {
         )}
 
         <div className="max-sm:mr-16 flex justify-center items-center gap-10">
-        <Link to="/cart" title="Cart Section">
-             <BsCart size={30} className={`text-justify ${mode === 'light' ? 'text-rose-700': 'text-white'} font-bold `}/>
+          <Link to="/cart" title="Cart Section">
+            <BsCart
+              size={30}
+              className={`text-justify ${
+                mode === "light" ? "text-rose-700" : "text-white"
+              } font-bold `}
+            />
           </Link>
           <button
             onClick={ChangeMode}
