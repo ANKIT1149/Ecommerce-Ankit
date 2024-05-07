@@ -70,16 +70,13 @@ export const Google = async (req, res, next) => {
         Math.random().toString(8).split(-2) +
         Math.random().toString(8).split(-2);
 
-      const hashedAge = bcryptjs.hashSync(generatedAge, 8);
-
       const newUser = new User({
         username:
-          req.body.name.split(" ").join("").toLowerCase() +
-          Math.random().toString(36).split(-4),
+          req.body.name.split(" ").join("").toLowerCase(),
         email: req.body.email,
         password: hashedPassword,
         phone: hashedPhone,
-        age: hashedAge,
+        age: generatedAge,
       });
 
       await newUser.save();
@@ -94,3 +91,13 @@ export const Google = async (req, res, next) => {
     next(error);
   }
 };
+
+
+export const Signout = async (req, res, next) => {
+  try {
+    res.clearCookie('access_token');
+    res.status(201).json('Logout Successsfully')
+  } catch (error) {
+    next(error)
+  }
+}

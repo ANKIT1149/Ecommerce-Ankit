@@ -3,7 +3,9 @@ import express from "express";
 import mongoose from "mongoose"
 import UserRouter from "./Routes/User.Routes.js";
 import AuthRouter from "./Routes/Auth.Routes.js";
+import cookieParser from 'cookie-parser'
 import dotenv from "dotenv";
+import ListeningRouter from "./Routes/Listening.routes.js";
 
 const app = express();
 dotenv.config()
@@ -19,9 +21,11 @@ mongoose.connect("mongodb+srv://Aryanshraj:Aryansh4567@mern-ecom.9l7jjxs.mongodb
 })
 
 app.use(express.json());
+app.use(cookieParser())
 
 app.use("/api/user", UserRouter);
 app.use("/api/auth", AuthRouter);
+app.use('/api/listening', ListeningRouter);
 
 app.use((err, req, res, next) => {
      const statusCode = err.statusCode || 500;

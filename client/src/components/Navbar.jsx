@@ -31,7 +31,7 @@ const Navbar = () => {
   };
   return (
     <header
-      className={`w-full h-auto ${
+      className={`w-full h-auto outline-none ${
         window.location.href === "/sign-up" ? "hidden" : ""
       }`}
     >

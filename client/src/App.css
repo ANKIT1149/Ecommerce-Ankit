@@ -13,3 +13,19 @@
 .background{
     background: linear-gradient(rgba(122, 240, 5, 0.6), #bff903);
 }
+
+.back_image1{
+   background: url('https://tse1.mm.bing.net/th?id=OIP._t5PwJneEsl0m0qJW7PoUgHaEK&pid=Api&rs=1&c=1&qlt=95&w=217&h=122');
+   background-size: cover;
+}
+
+/* .back_image_profile{
+   background: url('../src/assets/profile.jpg');
+   background-position:center;
+   background-size: cover;
+   height: 100vh;
+} */
+
+::-webkit-scrollbar{
+    display: none;
+}
